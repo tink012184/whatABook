@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Books</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Books</h1>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html" aria-current="page">Books</a></li>
+          <li><a href="genres.html">Genres</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <form class="search">
+        <label for="search">Search by Title:</label>
+        <input id="search" type="text" placeholder="Enter a title..." />
+        <button type="button" onclick="searchTitle()">Search</button>
+      </form>
+      <div id="results" class="list"></div>
+    </main>
+    <footer class="site-footer">© <span id="year"></span> WhatABook</footer>
+    <script src="scripts.js"></script>
+  </body>
+</html>

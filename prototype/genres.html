@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Genres</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Genres</h1>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="genres.html" aria-current="page">Genres</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="genres-grid">
+      <!-- A–Z quick jump -->
+      <nav id="alphaNav" class="alpha-nav" aria-label="Jump to letter"></nav>
+
+      <!-- Middle: grouped genres (A, B, …) -->
+      <section
+        id="genreGroups"
+        class="genre-groups"
+        aria-label="Genres"></section>
+
+      <!-- Right: books for selected genre -->
+      <aside id="bookPanel" class="book-panel" aria-live="polite">
+        <h2 id="bookPanelTitle">Pick a genre</h2>
+        <div id="bookResults"></div>
+      </aside>
+    </main>
+    <footer class="site-footer">© <span id="year"></span> WhatABook</footer>
+    <script src="scripts.js"></script>
+    <script>
+      initGenresPage();
+    </script>
+  </body>
+</html>

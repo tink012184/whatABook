@@ -1,0 +1,299 @@
+/* ===========================
+   WhatABook — Theme Base
+   =========================== */
+:root {
+  --bg: #012058; /* page background */
+  --text: #b7e3de; /* body text + default link */
+  --selected: #eaa22c; /* selected/active link/chip */
+  --muted: #8fbdb8; /* secondary text */
+  --border: rgba(183, 227, 222, 0.25); /* subtle borders from text */
+  --surface: rgba(255, 255, 255, 0.04); /* card background */
+  --surface-strong: rgba(255, 255, 255, 0.08);
+  --focus-ring: #ffd48a; /* accessible focus color related to selected */
+}
+
+/* Global reset / base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.5;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Links */
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.14em;
+  text-decoration-skip-ink: auto;
+  outline: none;
+}
+@media (hover: hover) {
+  a:hover {
+    text-decoration-thickness: 3px;
+  }
+}
+a:visited {
+  color: var(--text);
+}
+a:active {
+  opacity: 0.9;
+}
+a:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Selected/active inline link */
+[aria-current="page"],
+[aria-current="true"] {
+  color: var(--bg);
+  background: var(--selected);
+  border-radius: 0.5rem;
+  padding: 0.05rem 0.35rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* ===========================
+   Site chrome & layout blocks
+   =========================== */
+.site-header,
+.site-footer {
+  padding: 1rem;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-header nav a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.site-header nav a[aria-current="page"],
+.site-header nav a[aria-current="true"] {
+  background: var(--selected);
+  color: var(--bg);
+}
+
+.container {
+  padding: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.intro {
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.grid.two {
+  grid-template-columns: 220px 1fr;
+}
+
+.card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.item {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.search {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* ===========================
+   Genres page: A–Z layout
+   =========================== */
+.genres-grid {
+  display: grid;
+  grid-template-columns: 56px minmax(280px, 1fr) minmax(340px, 1fr);
+  gap: 1rem;
+  align-items: start;
+  min-height: 70vh;
+}
+
+/* A–Z jump bar */
+.alpha-nav {
+  position: sticky;
+  top: 1rem;
+  display: grid;
+  grid-auto-rows: min-content;
+  gap: 0.25rem;
+}
+.alpha-nav a {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.15rem 0.25rem;
+  border-radius: 0.4rem;
+  text-align: center;
+  line-height: 1;
+  color: var(--text);
+}
+.alpha-nav a:hover {
+  text-decoration: underline;
+}
+.alpha-nav a[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.35;
+  text-decoration: none;
+}
+
+/* Grouped genres */
+.genre-groups {
+  max-height: 80vh;
+  overflow: auto;
+  padding-right: 0.5rem;
+}
+.genre-group {
+  margin-block: 1rem;
+}
+.genre-group h3 {
+  margin: 0 0 0.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.25rem;
+  color: var(--text);
+}
+
+.genre-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Genre chips */
+.genre-link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+}
+@media (hover: hover) {
+  .genre-link:hover {
+    border-color: var(--text);
+    background: var(--surface-strong);
+  }
+}
+.genre-link:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.genre-link[aria-current="true"] {
+  color: var(--bg);
+  background: var(--selected); /* your #eaa22c */
+  border-color: var(--selected);
+}
+
+/* Books panel */
+.book-panel {
+  position: sticky;
+  top: 1rem;
+  max-height: 80vh;
+  overflow: auto;
+  border-left: 1px solid var(--border);
+  padding-left: 1rem;
+}
+.book-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+.book-item small {
+  color: var(--muted);
+}
+
+/* Make entire cards clickable and accessible */
+.card-link {
+  display: block; /* stretches to full card */
+  color: inherit; /* keep your theme text color */
+  text-decoration: none; /* no underline on the whole card */
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.02s;
+}
+
+.card-link:hover {
+  border-color: var(--selected);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--selected) 40%, transparent);
+}
+
+.card-link:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.card-link:active {
+  transform: translateY(1px);
+}
+
+.main-nav .nav-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.main-nav .nav-list li + li {
+  border-left: 1px solid var(--border);
+  padding-left: 2rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
+}
+
+/* highlight current page link using your selected color */
+.main-nav a[aria-current="page"],
+.main-nav a[aria-current="true"] {
+  background: var(--selected);
+  color: var(--bg);
+  border-radius: 0.4rem;
+  padding: 0.15rem 0.4rem;
+  text-decoration: none;
+}
+
+/* Misc */
+@media (max-width: 640px) {
+  .grid.two {
+    grid-template-columns: 1fr;
+  }
+}

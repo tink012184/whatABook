@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WhatABook</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>WhatABook</h1>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="genres.html">Genres</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <section class="intro">
+        <h2>Welcome</h2>
+        <p>
+          Browse our in-store listings, save books to your wishlist, and come
+          see us in person!
+        </p>
+      </section>
+      <section class="grid">
+        <a
+          class="card card-link"
+          href="books.html"
+          aria-label="Browse by Title">
+          <h3>Browse by Title</h3>
+          <p>Search for books by title.</p>
+        </a>
+
+        <a
+          class="card card-link"
+          href="genres.html"
+          aria-label="Browse by Genre">
+          <h3>Browse by Genre</h3>
+          <p>Discover new reads by category.</p>
+        </a>
+
+        <a
+          class="card card-link"
+          href="wishlist.html"
+          aria-label="Your Wishlist">
+          <h3>Your Wishlist</h3>
+          <p>Keep track of books you love.</p>
+        </a>
+      </section>
+    </main>
+    <footer class="site-footer">© <span id="year"></span> WhatABook</footer>
+    <script src="scripts.js"></script>
+  </body>
+</html>
