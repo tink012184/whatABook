@@ -8,7 +8,7 @@ from pymongo.errors import PyMongoError
 # --- Config ---
 MONGO_URI = os.getenv("MONGO_URI", "").strip()
 DB_NAME = os.getenv("WHATABOOK_DB", "whatabook").strip() or "whatabook"
-STATIC_DIR = os.path.join(os.path.dirname(__file__), "prototype")
+STATIC_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "public"))
 
 if not MONGO_URI:
     # Fail fast in prod so you don't accidentally run with a bad/empty URI
